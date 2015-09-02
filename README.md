@@ -5,7 +5,7 @@ BlackJack for CS3750
 This app needs to allow the user to play blackjack
 
 ## Reqs
-Obj:
+Obj: <br>
 Deck <br>
 Dollar amount <br>
 Initial Value <br>
@@ -14,7 +14,7 @@ Dealer <br>
 Player <br>
 Card <br>
 
-Logic:
+Logic: <br>
 Deck > Shuffle <br>
 Deck > Deal <br>
 Hand > Hit <br>
