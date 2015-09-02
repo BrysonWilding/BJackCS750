@@ -1,16 +1,62 @@
-var game = {};
-var Deck, Hands, Dealer, Player, Card = {};
+var Game = function(startMoney) {
+    if(typeof startMoney == "undefined")
+        startMoney = 1000;
 
-game.Deck = Deck;
-game.Hands = Hands;
-game.Dealer = Dealer;
-game.Player = Player;
-game.Card = Card;
+    /** private object declarations **/
+    var Deck = function() {
+        var privateVar = "";
 
-game.Deck.Shuffle = function() {
+        var publicObj = {
+            shuffle: function() {}
+        };
 
+        return publicObj;
+    };
+
+    var Hands = function() {
+        var privateVar = "";
+
+        var publicObj = {};
+
+        return publicObj;
+    };
+
+    var Dealer = function() {
+        var privateVar = "";
+
+        var publicObj = {};
+
+        return publicObj;
+    };
+    var Player = function() {
+        var privateVar = "";
+
+        var publicObj = {};
+
+        return publicObj;
+    };
+    var Card = function() {
+        var privateVar = "";
+
+        var publicObj = {};
+
+        return publicObj;
+    };
+    /** end object declarations **/
+
+    /** defined same start routine **/
+    function runGame() {
+        
+    };
+
+    var publicObj = {
+        
+    };
+
+    //start the game when a new object is initialized
+    runGame();
+    return publicObj;
 };
 
-game.Run = function(){
-
-};
+//start a new game
+new Game();
