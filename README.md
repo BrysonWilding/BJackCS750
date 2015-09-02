@@ -6,19 +6,19 @@ This app needs to allow the user to play blackjack
 
 ## Reqs
 Obj:
-Deck
-Dollar amount
-Initial Value
-Hands
-Dealer
-Player
-Card
+Deck <br>
+Dollar amount <br>
+Initial Value <br>
+Hands <br>
+Dealer <br>
+Player <br>
+Card <br>
 
 Logic:
-Deck > Shuffle
-Deck > Deal
-Hand > Hit
-Hand > Stay
-Hand > Split
-Dealer > Play
+Deck > Shuffle <br>
+Deck > Deal <br>
+Hand > Hit <br>
+Hand > Stay <br>
+Hand > Split <br>
+Dealer > Play <br>
 
