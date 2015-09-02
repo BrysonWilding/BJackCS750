@@ -20,3 +20,5 @@ Hand > Stay <br>
 Hand > Split <br>
 Dealer > Play <br>
 
+Chat: https://gitter.im/BrysonWilding/BJackCS750
+
