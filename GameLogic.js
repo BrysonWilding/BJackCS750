@@ -1,62 +1,67 @@
 var Game = function(startMoney) {
-    if(typeof startMoney == "undefined")
-        startMoney = 1000;
+    /** default variables **/
+        if(typeof startMoney == "undefined")
+            startMoney = 1000;
 
     /** private object declarations **/
-    var Deck = function() {
-        var privateVar = "";
+        var Deck = function() {
+            var privateVar = "";
 
-        var publicObj = {
-            shuffle: function() {}
+            var publicObj = {
+                shuffle: function() {}
+            };
+
+            //shuffle new instance of deck
+            publicObj.shuffle();
+
+            return publicObj;
         };
 
-        return publicObj;
-    };
+        var Hands = function() {
+            var privateVar = "";
 
-    var Hands = function() {
-        var privateVar = "";
+            var publicObj = {};
 
-        var publicObj = {};
+            return publicObj;
+        };
 
-        return publicObj;
-    };
+        var Dealer = function() {
+            var privateVar = "";
 
-    var Dealer = function() {
-        var privateVar = "";
+            var publicObj = {};
 
-        var publicObj = {};
+            return publicObj;
+        };
+        var Player = function() {
+            var privateVar = "";
 
-        return publicObj;
-    };
-    var Player = function() {
-        var privateVar = "";
+            var publicObj = {};
 
-        var publicObj = {};
+            return publicObj;
+        };
+        var Card = function() {
+            var privateVar = "";
 
-        return publicObj;
-    };
-    var Card = function() {
-        var privateVar = "";
+            var publicObj = {};
 
-        var publicObj = {};
-
-        return publicObj;
-    };
+            return publicObj;
+        };
     /** end object declarations **/
 
     /** defined same start routine **/
-    function runGame() {
-        
-    };
+        function runGame() {
 
-    var publicObj = {
-        
-    };
+        };
 
-    //start the game when a new object is initialized
-    runGame();
-    return publicObj;
+    /** public object returned to the page for new Game Object **/
+        var publicObj = {
+
+        };
+
+    /**start the game when a new object is initialized**/
+        runGame();
+        return publicObj;
 };
 
 //start a new game
-new Game();
+var game = new Game();
