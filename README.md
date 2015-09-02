@@ -15,10 +15,10 @@ Player
 Card
 
 Logic:
-Deck - Shuffle
-Deck - Deal
-Hand - Hit
-Hand - Stay
-Hand - Split
-Dealer - Play
+Deck > Shuffle
+Deck > Deal
+Hand > Hit
+Hand > Stay
+Hand > Split
+Dealer > Play
 
