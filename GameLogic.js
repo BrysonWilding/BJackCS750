@@ -50,7 +50,7 @@ var Game = function(startMoney) {
 
     /** defined same start routine **/
         function runGame() {
-
+            console.log("The game is running");
         };
 
     /** public object returned to the page for new Game Object **/
