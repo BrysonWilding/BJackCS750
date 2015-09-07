@@ -7,7 +7,7 @@ This app needs to allow the user to play blackjack
 ## Reqs
 Obj: <br>
 Deck <br>
-Hands <br>
+Hand <br>
 Dealer <br>
 Player <br>
 Card <br>
