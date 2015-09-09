@@ -102,7 +102,7 @@ var Game = function (startMoney) {
         this.toString = function () {
             var str = "\n";
             for (var i in hand) {
-                str += hand[i].toString() + "\n";
+                str += hand[i].toString() + "<br>";
             }
             return str;
         };
@@ -178,25 +178,8 @@ var Game = function (startMoney) {
         bet: document.getElementById('bet')
     };
 
-    /** add all the handlers to connect game object and UI **/
-    function initHandlers() {
-        els.bet.onclick = function() {
-            els.money_label.innerHTML = "Current Money";
-            els.starting_amount.disabled = "disabled";
-            alert('bet button clicked');
-        };
-        els.hit.onclick = function() {
-            alert('hit button clicked');
-        };
-        els.stay.onclick = function() {
-            alert('stay button clicked');
-        };
-    }
-
     /** defined same start routine **/
     function runGame() {
-        initHandlers();
-
         var deck = new Deck();
 
         var players = [];
@@ -205,9 +188,27 @@ var Game = function (startMoney) {
         players.push(me);
         players.push(dealer);
 
-        deck.deal(players);
+        els.bet.onclick = function() {
+            if(!els.bet_amount.value) {
+                alert('please input an amount to bet');
+            } else {
+                els.money_label.innerHTML = "Current Money";
+                els.starting_amount.disabled = "disabled";
+                deck.deal(players);
+                els.player_cont.innerHTML = me.currHand.toString();
+                els.dealer_cont.innerHTML = dealer.currHand.toString();
+            }
+        };
+        els.hit.onclick = function() {
+            alert('hit button clicked');
+        };
+        els.stay.onclick = function() {
+            alert('stay button clicked');
+        };
+
+        /*deck.deal(players);
         console.log("your current hand is:", me.currHand.toString());
-        console.log("dealer hand is:", dealer.currHand.toString());
+        console.log("dealer hand is:", dealer.currHand.toString());*/
     };
 
     /**start the game when a new object is initialized**/
