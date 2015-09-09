@@ -32,6 +32,7 @@ function runGame() {
                 els.starting_amount.value = me.currMoney;
                 els.hit.removeAttribute("disabled");
                 els.stay.removeAttribute("disabled");
+                //TODO: add player score
             }
             els.player_cont.innerHTML = me.currHand.toString();
             els.dealer_cont.innerHTML = dealer.currHand.toString();
@@ -43,6 +44,7 @@ function runGame() {
         deck.hit(me.currHand);
         els.player_cont.innerHTML = me.currHand.toString();
         els.dealer_cont.innerHTML = dealer.currHand.toString();
+        //TODO: update player score
     };
     els.stay.onclick = function() {
         alert('stay button clicked');
