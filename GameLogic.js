@@ -1,9 +1,3 @@
-function extend(obj1, obj2) {
-    for (key in obj1) {
-        obj1[key] = obj2[key];
-    }
-};
-
 var Game = function (startMoney) {
     /** default variables **/
     if (typeof startMoney == "undefined")
