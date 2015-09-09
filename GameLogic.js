@@ -1,16 +1,17 @@
-var els = {
-    money_label: document.getElementById('money_label'),
-    starting_amount: document.getElementById('starting'),
-    bet_amount: document.getElementById('bet_amount'),
-    player_cont: document.getElementById('player'),
-    dealer_cont: document.getElementById('dealer'),
-    hit: document.getElementById('hit'),
-    stay: document.getElementById('stay'),
-    bet: document.getElementById('bet')
-};
-
 /** defined same start routine **/
 function runGame() {
+    var els = {
+        money_label: document.getElementById('money_label'),
+        starting_amount: document.getElementById('starting'),
+        bet_amount: document.getElementById('bet_amount'),
+        player_cont: document.getElementById('player'),
+        dealer_cont: document.getElementById('dealer'),
+        hit: document.getElementById('hit'),
+        stay: document.getElementById('stay'),
+        bet: document.getElementById('bet')
+    };
+    
+
     var deck = new Deck();
 
     var players = [];
