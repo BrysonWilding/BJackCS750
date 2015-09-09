@@ -12,6 +12,7 @@ var Game = function(startMoney) {
     /** private object declarations **/
         var Deck = function() {
             var cardArray = [];
+            //var drawn = [];  Not needed as the deck is randomized initially. That is better than my idea would have been.
 
             /*initialize cards and their types*/
             for(var i=0;i<4;i++){
