@@ -150,6 +150,26 @@ var Game = function (startMoney) {
 
     var Player = function () {
         this.currHand = null;
+		
+		if(endHand == true) {
+			alert("Hand is over, place bets and deal again!");
+		} else {
+			cardNumber = playerHand.length;
+			cardScore(playerHand) += card.pointValue;
+			total = cardScore(playerHand);
+		}
+		if(total > 21) {
+			alert(dealerTotal + alert(" busted!"));
+			startMoney = startMoney - bet;
+			endHand = true;
+		} else {
+			startMoney = startMoney + bet;
+		}
+		if (total > 0 && card.value != "ace") {
+            total += card.pointValue;
+        } else if (card.value == "ace") {
+            total += 11;
+        }
     };
 
     var Card = function (obj) {
