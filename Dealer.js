@@ -1,14 +1,12 @@
 var Dealer = function () {
     var privateVar = "";
 
-    var publicObj = {};
-    var cardNumber = 0;
+    /*var cardNumber = 0;
     var nextCard = cardArray.pop();
     var endHand = false;
     dealerTotal = Dealer.firstCard.pointValue + Dealer.secondCard.pointValue;
 
 
-    return publicObj;
     this.currHand = null;
     this.play = function () {
         while (total < 17) {
@@ -30,5 +28,5 @@ var Dealer = function () {
             alert("You Win!!");
             endHand = true;
         }
-    };
+    };*/
 };

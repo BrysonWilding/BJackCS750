@@ -50,11 +50,8 @@ function runGame() {
     console.log("dealer hand is:", dealer.currHand.toString());*/
 };
 
-/**start the game when a new object is initialized**/
-runGame();
-
-
 //start a new game
 window.onload = function() {
-    var game = new Game();
+    /**start the game when a new object is initialized**/
+    runGame();
 }
