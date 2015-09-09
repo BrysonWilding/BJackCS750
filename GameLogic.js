@@ -1,9 +1,3 @@
-function extend(obj1, obj2) {
-    for (key in obj1) {
-        obj1[key] = obj2[key];
-    }
-};
-
 var Game = function (startMoney) {
     /** default variables **/
     if (typeof startMoney == "undefined")
@@ -150,6 +144,26 @@ var Game = function (startMoney) {
 
     var Player = function () {
         this.currHand = null;
+		
+		if(endHand == true) {
+			alert("Hand is over, place bets and deal again!");
+		} else {
+			cardNumber = playerHand.length;
+			cardScore(playerHand) += card.pointValue;
+			total = cardScore(playerHand);
+		}
+		if(total > 21) {
+			alert(dealerTotal + alert(" busted!"));
+			startMoney = startMoney - bet;
+			endHand = true;
+		} else {
+			startMoney = startMoney + bet;
+		}
+		if (total > 0 && card.value != "ace") {
+            total += card.pointValue;
+        } else if (card.value == "ace") {
+            total += 11;
+        }
     };
 
     var Card = function (obj) {
@@ -229,6 +243,8 @@ var Game = function (startMoney) {
                 deck.deal(players);
                 els.player_cont.innerHTML = me.currHand.toString();
                 els.dealer_cont.innerHTML = dealer.currHand.toString();
+                els.bet.disabled = "disabled";
+                els.bet_amount.disabled = "disabled";
             }
         };
         els.hit.onclick = function() {
