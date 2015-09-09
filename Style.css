@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    width: 960px;
+    width: 400px;
     position: relative;
     margin: 40px auto;
     background: #efefef;
@@ -32,4 +32,5 @@ input[type=number] {
     position: relative;
     width: 100%;
     text-align: center;
+    margin-bottom: 24px;
 }

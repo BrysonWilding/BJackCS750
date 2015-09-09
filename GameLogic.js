@@ -229,6 +229,8 @@ var Game = function (startMoney) {
                 deck.deal(players);
                 els.player_cont.innerHTML = me.currHand.toString();
                 els.dealer_cont.innerHTML = dealer.currHand.toString();
+                els.bet.disabled = "disabled";
+                els.bet_amount.disabled = "disabled";
             }
         };
         els.hit.onclick = function() {
