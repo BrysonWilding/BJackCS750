@@ -10,7 +10,7 @@ function runGame() {
         stay: document.getElementById('stay'),
         bet: document.getElementById('bet')
     };
-    
+
 
     var deck = new Deck();
 
@@ -26,11 +26,9 @@ function runGame() {
         } else {
             els.money_label.innerHTML = "Current Money";
             els.starting_amount.disabled = "disabled";
-            if(me.bet()) {
+            if(me.bet(parseInt(els.bet_amount.value))) {
                 deck.deal(players);
-                for(var i in me.currHand) {
-                    me.currHand[i].setVisible();
-                }
+                me.currHand.setAllVisible();
                 els.starting_amount.value = me.currMoney;
             }
             els.player_cont.innerHTML = me.currHand.toString();

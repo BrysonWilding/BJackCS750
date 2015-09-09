@@ -3,11 +3,11 @@ var Player = function () {
     this.currMoney = 1000;
 
     this.bet = function(amount) {
-        if(currMoney - amount < 1) {
+        if(this.currMoney - amount < 1) {
             alert('You broke with that bet!');
             return false;
         } else {
-            currMoney -= amount;
+            this.currMoney -= amount;
             return true;
         }
         /*

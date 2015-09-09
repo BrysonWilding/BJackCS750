@@ -36,4 +36,9 @@ var Hand = function (card) {
         }
         return str;
     };
+    this.setAllVisible = function() {
+        for(var i in hand) {
+            hand[i].setVisible();
+        }
+    }
 };
