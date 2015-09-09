@@ -30,6 +30,8 @@ function runGame() {
                 deck.deal(players);
                 me.currHand.setAllVisible();
                 els.starting_amount.value = me.currMoney;
+                els.hit.removeAttribute("disabled");
+                els.stay.removeAttribute("disabled");
             }
             els.player_cont.innerHTML = me.currHand.toString();
             els.dealer_cont.innerHTML = dealer.currHand.toString();
@@ -39,6 +41,8 @@ function runGame() {
     };
     els.hit.onclick = function() {
         deck.hit(me.currHand);
+        els.player_cont.innerHTML = me.currHand.toString();
+        els.dealer_cont.innerHTML = dealer.currHand.toString();
     };
     els.stay.onclick = function() {
         alert('stay button clicked');

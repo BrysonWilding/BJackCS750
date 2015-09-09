@@ -46,7 +46,9 @@ var Deck = function () {
         hand.addCard(this.getCard());
     };
     this.getCard = function () {
-        return cardArray.pop();
+        var card = cardArray.pop();
+        card.setVisible();
+        return card;
     };
     this.showCards = function () {
         return cardArray;
