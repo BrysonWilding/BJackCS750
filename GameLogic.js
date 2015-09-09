@@ -115,9 +115,6 @@ var Game = function (startMoney) {
         return publicObj;
         this.currHand = null;
         this.play = function () {
-
-
-
             while (total < 17) {
                 Dealer.currHand.addCard(nextCard);
                 total = total + nextCard.pointValue;
@@ -137,32 +134,41 @@ var Game = function (startMoney) {
                 alert("You Win!!");
                 endHand = true;
             }
-
-
         };
     };
 
     var Player = function () {
         this.currHand = null;
-		
-		if(endHand == true) {
-			alert("Hand is over, place bets and deal again!");
-		} else {
-			cardNumber = playerHand.length;
-			cardScore(playerHand) += card.pointValue;
-			total = cardScore(playerHand);
-		}
-		if(total > 21) {
-			alert(dealerTotal + alert(" busted!"));
-			startMoney = startMoney - bet;
-			endHand = true;
-		} else {
-			startMoney = startMoney + bet;
-		}
-		if (total > 0 && card.value != "ace") {
-            total += card.pointValue;
-        } else if (card.value == "ace") {
-            total += 11;
+        this.currMoney = 1000;
+
+        this.bet = function(amount) {
+            if(currMoney - amount < 1) {
+                alert('You broke with that bet!');
+                return false;
+            } else {
+                currMoney -= amount;
+                return true;
+            }
+            /*
+            if (endHand == true) {
+                alert("Hand is over, place bets and deal again!");
+            } else {
+                cardNumber = playerHand.length;
+                cardScore(playerHand) += card.pointValue;
+                total = cardScore(playerHand);
+            }
+            if (total > 21) {
+                alert(dealerTotal + alert(" busted!"));
+                startMoney = startMoney - bet;
+                endHand = true;
+            } else {
+                startMoney = startMoney + bet;
+            }
+            if (total > 0 && card.value != "ace") {
+                total += card.pointValue;
+            } else if (card.value == "ace") {
+                total += 11;
+            }*/
         }
     };
 
@@ -240,7 +246,13 @@ var Game = function (startMoney) {
             } else {
                 els.money_label.innerHTML = "Current Money";
                 els.starting_amount.disabled = "disabled";
-                deck.deal(players);
+                if(me.bet()) {
+                    deck.deal(players);
+                    for(var i in me.currHand) {
+                        me.currHand[i].setVisible();
+                    }
+                    els.starting_amount.value = me.currMoney;
+                }
                 els.player_cont.innerHTML = me.currHand.toString();
                 els.dealer_cont.innerHTML = dealer.currHand.toString();
                 els.bet.disabled = "disabled";
@@ -248,7 +260,7 @@ var Game = function (startMoney) {
             }
         };
         els.hit.onclick = function() {
-            alert('hit button clicked');
+            deck.hit(me.currHand);
         };
         els.stay.onclick = function() {
             alert('stay button clicked');
