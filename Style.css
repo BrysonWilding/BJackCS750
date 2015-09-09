@@ -1,9 +1,35 @@
 body {
     background: #228b22;
+    position: relative;
 }
 
-.card {
-    width: 100px;
-    height: 150px;
-    background-color: #0000ff;
+.container {
+    width: 960px;
+    position: relative;
+    margin: 40px auto;
+    background: #efefef;
+    border: 1px solid black;
+    min-height: 400px;
+    text-align: center;
+}
+
+.box {
+    text-align: left;
+    margin: auto;
+    width: 315px;
+    position: relative;
+}
+
+input[type=button] {
+    margin: 0 10px;
+}
+
+input[type=number] {
+    width: 50px;
+}
+
+.buttons {
+    position: relative;
+    width: 100%;
+    text-align: center;
 }
