@@ -167,9 +167,30 @@ var Game = function (startMoney) {
     };
     /** end object declarations **/
 
+    var els = {
+        money_label: document.getElementById('money_label'),
+        starting_amount: document.getElementById('starting'),
+        bet_amount: document.getElementById('bet_amount'),
+        player_cont: document.getElementById('player'),
+        dealer_cont: document.getElementById('dealer'),
+        hit: document.getElementById('hit'),
+        stay: document.getElementById('stay'),
+        bet: document.getElementById('bet')
+    };
+
     /** add all the handlers to connect game object and UI **/
     function initHandlers() {
-        //e.g. document.getElementById('blah').onclick = function() {};
+        els.bet.onclick = function() {
+            els.money_label.innerHTML = "Current Money";
+            els.starting_amount.disabled = "disabled";
+            alert('bet button clicked');
+        };
+        els.hit.onclick = function() {
+            alert('hit button clicked');
+        };
+        els.stay.onclick = function() {
+            alert('stay button clicked');
+        };
     }
 
     /** defined same start routine **/
@@ -194,4 +215,6 @@ var Game = function (startMoney) {
 };
 
 //start a new game
-var game = new Game();
+window.onload = function() {
+    var game = new Game();
+}
