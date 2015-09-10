@@ -38,6 +38,7 @@ function runGame() {
             els.money_label.innerHTML = "Current Money";
             els.starting_amount.disabled = "disabled";
             if(me.bet(parseInt(els.bet_amount.value))) {
+                deck.checkCardCount();
                 deck.deal(players);
                 me.currHand.setAllVisible();
                 els.starting_amount.value = me.currMoney;
@@ -48,6 +49,16 @@ function runGame() {
                 els.bet_amount.disabled = "disabled";
                 els.player_cont.innerHTML = me.currHand.toString();
                 els.dealer_cont.innerHTML = dealer.currHand.toString();
+
+                var totals = me.currHand.total();
+                for(var i in totals) {
+                    if(totals[i] == 21) {
+                        alert("Blackjack!! You win!");
+                        me.wonHand();
+                        resetUI();
+                        els.starting_amount.value = me.currMoney;
+                    }
+                }
             }
         }
     };
