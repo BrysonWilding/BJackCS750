@@ -3,6 +3,7 @@ var Player = function () {
     this.currMoney = 1000;
     this.currBet = 0;
 
+    //bet function handles if a bet is valid. If so, it subtracts from player's money
     this.bet = function(amount) {
         if(this.currMoney - amount < 1) {
             alert('You broke with that bet!');
@@ -12,28 +13,9 @@ var Player = function () {
             this.currBet = amount;
             return true;
         }
-        /*
-         if (endHand == true) {
-         alert("Hand is over, place bets and deal again!");
-         } else {
-         cardNumber = playerHand.length;
-         cardScore(playerHand) += card.pointValue;
-         total = cardScore(playerHand);
-         }
-         if (total > 21) {
-         alert(dealerTotal + alert(" busted!"));
-         startMoney = startMoney - bet;
-         endHand = true;
-         } else {
-         startMoney = startMoney + bet;
-         }
-         if (total > 0 && card.value != "ace") {
-         total += card.pointValue;
-         } else if (card.value == "ace") {
-         total += 11;
-         }*/
     }
 
+    //won hand means we get our money back plus some
     this.wonHand = function() {
         this.currMoney += this.currBet*2;
         this.currBet = 0;

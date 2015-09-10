@@ -1,8 +1,8 @@
 var Deck = function () {
     var cardArray = [];
     var me = this;
-    //var drawn = [];  Not needed as the deck is randomized initially. That is better than my idea would have been.
 
+    //initializes a brand new deck and shuffles it
     function initCards() {
         /*initialize cards and their types*/
         cardArray = [];
@@ -31,11 +31,14 @@ var Deck = function () {
         me.shuffle();
     }
 
+    //shuffles the card array
     me.shuffle = function() {
         var o = cardArray;
         for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
     };
+
+    //deals cards, one at a time to each player. The first card is face up and the second is face down
     me.deal = function (players) {
         //players is an array of people to deal to
         //each player is given a card face down, then one face up
@@ -49,18 +52,25 @@ var Deck = function () {
             players[i].currHand.addCard(secondCard);
         }
     };
+
+    //take a card off the deck, then put it into a hand
     me.hit = function (hand) {
         hand.addCard(me.getCard());
     };
+
+    //gives a card from the cardArray, makes it visible, then returns the card
     me.getCard = function () {
         var card = cardArray.pop();
         card.setVisible();
         return card;
     };
+
+    //outputs a listing of all the cards in the current deck. helper function for debugging
     me.showCards = function () {
         return cardArray;
     };
 
+    //checks to see if 10 or less cards in the deck, if so, we just shuffle a new deck
     me.checkCardCount = function() {
         if(cardArray.length <= 10) {
             initCards();

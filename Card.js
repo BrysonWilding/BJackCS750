@@ -1,4 +1,5 @@
 var Card = function (obj) {
+    //a card can be initialized with an object containing "suit" and "value" as a number 1-13
     if (!obj) {
         var obj = {};
     }
@@ -7,6 +8,7 @@ var Card = function (obj) {
         suit = obj.suit || "",
         visible = false;
 
+    //setup special card names and values
     switch (value) {
         case 1:
             value = "ace";
@@ -33,11 +35,14 @@ var Card = function (obj) {
     this.value = value;
     this.visible = visible || false;
     this.pointValue = pointValue;
+
     this.toString = function () {
         if (this.visible)
             return this.value + " of " + this.suit + "s";
         return "unknown";
     };
+
+    //this will set a card that is face down to face up
     this.setVisible = function (value) {
         if (typeof value == "undefined") value = true;
         this.visible = value;

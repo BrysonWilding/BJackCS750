@@ -1,5 +1,6 @@
 /** defined same start routine **/
 function runGame() {
+    //object to contain references to html elements
     var els = {
         money_label: document.getElementById('money_label'),
         starting_amount: document.getElementById('starting'),
@@ -12,15 +13,17 @@ function runGame() {
         player_score: document.getElementById('player_score')
     };
 
-
+    //init the first deck
     var deck = new Deck();
 
+    //init the players - this could potentially allow more than 2 players in the future
     var players = [];
     var me = new Player();
     var dealer = new Dealer();
     players.push(me);
     players.push(dealer);
 
+    //function to reset all of the UI elements after a round is over
     function resetUI() {
         els.player_cont.innerHTML = "";
         els.dealer_cont.innerHTML = "";
@@ -31,16 +34,26 @@ function runGame() {
         els.stay.disabled = "disabled";
     }
 
+    /** this is the actions to take on the "bet" button **/
     els.bet.onclick = function() {
+        //check for empty bet field
         if(!els.bet_amount.value) {
             alert('please input an amount to bet');
         } else {
+            //disable the starting money as they cannot change it once the game is started
             els.money_label.innerHTML = "Current Money";
             els.starting_amount.disabled = "disabled";
+
+            //check if the bet is valid. If so, continue with game play
             if(me.bet(parseInt(els.bet_amount.value))) {
+                //check if we need to get out a new deck
                 deck.checkCardCount();
+                //deal the deck to all players
                 deck.deal(players);
+                //make all of the player's card visible to the user
                 me.currHand.setAllVisible();
+
+                //set various field values
                 els.starting_amount.value = me.currMoney;
                 els.hit.removeAttribute("disabled");
                 els.stay.removeAttribute("disabled");
@@ -50,6 +63,7 @@ function runGame() {
                 els.player_cont.innerHTML = me.currHand.toString();
                 els.dealer_cont.innerHTML = dealer.currHand.toString();
 
+                //check to see if player got blackjack
                 var totals = me.currHand.total();
                 for(var i in totals) {
                     if(totals[i] == 21) {
@@ -62,13 +76,19 @@ function runGame() {
             }
         }
     };
+
+    /** this is the actions to take on the "hit" button **/
     els.hit.onclick = function() {
+        // add a card into player hand
         deck.hit(me.currHand);
 
+        //show current player cards
         var totals = me.currHand.total();
         els.player_cont.innerHTML = me.currHand.toString();
         els.dealer_cont.innerHTML = dealer.currHand.toString();
         els.player_score.innerHTML = totals.toString();
+
+        // calculate if the player has blackjack or bust
         var bustFlag = true;
         for(var i in totals) {
             if(totals[i] < 21)
@@ -87,12 +107,17 @@ function runGame() {
 
         els.starting_amount.value = me.currMoney;
     };
+
+    /** this is the actions to take on the "stay" button **/
     els.stay.onclick = function() {
+        //dealer starts their turn
         dealer.play(deck);
 
+        //flip over dealer cards to make them visiable
         dealer.currHand.setAllVisible();
         els.dealer_cont.innerHTML = dealer.currHand.toString();
 
+        //check dealer score vs player score to see who wins
         var dealer_high = dealer.currHand.highestValidScore();
         var player_high = me.currHand.highestValidScore();
         if(dealer_high > 21 || dealer_high == -1) {
@@ -100,6 +125,8 @@ function runGame() {
             me.wonHand();
         } else if(dealer_high == 21) {
             alert("You lose. The dealer got blackjack.");
+        } else if (player_high == dealer_high) {
+            alert("You win! Dealer's score was " + dealer_high +" and tie goes to the player.");
         } else if (player_high >= dealer_high) {
             alert("You win! Dealer's score was " + dealer_high +".");
             me.wonHand();
@@ -111,13 +138,9 @@ function runGame() {
 
         els.starting_amount.value = me.currMoney;
     };
-
-    /*deck.deal(players);
-    console.log("your current hand is:", me.currHand.toString());
-    console.log("dealer hand is:", dealer.currHand.toString());*/
 };
 
-//start a new game
+//start a new game. we have to wait til onload so the dom is fully initialized before we try to reference things on it
 window.onload = function() {
     /**start the game when a new object is initialized**/
     runGame();
