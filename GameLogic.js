@@ -72,6 +72,8 @@ function runGame() {
             alert("You bust! :(");
             resetUI();
         }
+
+        els.starting_amount.value = me.currMoney;
     };
     els.stay.onclick = function() {
         dealer.play(deck);
@@ -94,6 +96,8 @@ function runGame() {
         }
 
         resetUI();
+
+        els.starting_amount.value = me.currMoney;
     };
 
     /*deck.deal(players);

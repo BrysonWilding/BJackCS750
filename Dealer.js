@@ -11,7 +11,7 @@ var Dealer = function () {
     */
     this.play = function (deck) {
         var total = this.currHand.highestValidScore();
-        while (total < 17) {
+        while (total > -1 && total < 17) {
             deck.hit(this.currHand);
             total = this.currHand.highestValidScore();
         }
