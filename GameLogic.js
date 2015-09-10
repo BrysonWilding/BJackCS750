@@ -60,12 +60,13 @@ function runGame() {
         els.player_score.innerHTML = totals.toString();
         var bustFlag = true;
         for(var i in totals) {
-            if(totals[i] < 22)
+            if(totals[i] < 21)
                 bustFlag = false;
             else if(totals[i] == 21) {
                 alert("Blackjack!! You win!");
                 me.wonHand();
                 resetUI();
+                bustFlag = false;
             }
         }
         if(bustFlag) {

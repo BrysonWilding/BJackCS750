@@ -21,10 +21,10 @@ var Hand = function (card) {
         for (var i in hand) {
             var card = hand[i];
             //higher total if needed
-            if (card.value == "ace" && numAces > 1 && !tempFlag) {
+            if (card.value == "ace" && numAces > 0 && !tempFlag) {
                 total2 += 11;
                 tempFlag = true;
-            } else if (total2 > 0) {
+            } else if (numAces > 0) {
                 total2 += parseInt(card.pointValue);
             }
             //regular total
