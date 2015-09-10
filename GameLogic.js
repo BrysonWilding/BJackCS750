@@ -10,7 +10,8 @@ function runGame() {
         hit: document.getElementById('hit'),
         stay: document.getElementById('stay'),
         bet: document.getElementById('bet'),
-        player_score: document.getElementById('player_score')
+        player_score: document.getElementById('player_score'),
+        dealer_score: document.getElementById('dealer_score')
     };
 
     //init the first deck
@@ -30,6 +31,7 @@ function runGame() {
         els.bet.removeAttribute("disabled");
         els.bet_amount.removeAttribute("disabled");
         els.player_score.innerHTML = "";
+        els.dealer_score.innerHTML = "";
         els.hit.disabled = "disabled";
         els.stay.disabled = "disabled";
     }
@@ -58,6 +60,7 @@ function runGame() {
                 els.hit.removeAttribute("disabled");
                 els.stay.removeAttribute("disabled");
                 els.player_score.innerHTML = me.currHand.total().toString();
+                els.dealer_score.innerHTML = dealer.currHand.total().toString();
                 els.bet.disabled = "disabled";
                 els.bet_amount.disabled = "disabled";
                 els.player_cont.innerHTML = me.currHand.toString();
