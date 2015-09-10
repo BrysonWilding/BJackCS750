@@ -21,19 +21,25 @@ var Hand = function (card) {
         var tempFlag = false;
         for (var i in hand) {
             if(hand[i].value == "ace")
-                numAces++;
+                if(hand[i].visible == true)
+                {
+                    numAces++;
+                }
         }
         for (var i in hand) {
             var card = hand[i];
-            //higher total if needed
-            if (card.value == "ace" && numAces > 0 && !tempFlag) {
-                total2 += 11;
-                tempFlag = true;
-            } else if (numAces > 0) {
-                total2 += parseInt(card.pointValue);
+            if(hand[i].visible == true)
+            {
+                //higher total if needed
+                if (card.value == "ace" && numAces > 0 && !tempFlag) {
+                    total2 += 11;
+                    tempFlag = true;
+                } else if (numAces > 0) {
+                    total2 += parseInt(card.pointValue);
+                }
+                //regular total
+                total += parseInt(card.pointValue);
             }
-            //regular total
-            total += parseInt(card.pointValue);
         }
         //ace hands can have 2 potential values, so this returns both options
         if (total2 > 0)
