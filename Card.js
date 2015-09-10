@@ -8,6 +8,8 @@ var Card = function (obj) {
         suit = obj.suit || "",
         visible = false;
 
+    var publicVar = this;
+
     //setup special card names and values
     switch (value) {
         case 1:
@@ -31,20 +33,20 @@ var Card = function (obj) {
             value = value + "";
     }
 
-    this.suit = suit;
-    this.value = value;
-    this.visible = visible || false;
-    this.pointValue = pointValue;
+    publicVar.suit = suit;
+    publicVar.value = value;
+    publicVar.visible = visible || false;
+    publicVar.pointValue = pointValue;
 
-    this.toString = function () {
-        if (this.visible)
-            return this.value + " of " + this.suit + "s";
+    publicVar.toString = function () {
+        if (publicVar.visible)
+            return publicVar.value + " of " + publicVar.suit + "s";
         return "unknown";
     };
 
     //this will set a card that is face down to face up
-    this.setVisible = function (value) {
+    publicVar.setVisible = function (value) {
         if (typeof value == "undefined") value = true;
-        this.visible = value;
+        publicVar.visible = value;
     };
 };

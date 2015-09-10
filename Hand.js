@@ -1,17 +1,18 @@
 var Hand = function (card) {
     var hand = [card];
+    var publicVar = this;
 
     //adds a card to our current hand
-    this.addCard = function (card) {
+    publicVar.addCard = function (card) {
         hand.push(card);
     };
 
-    this.split = function () {
+    publicVar.split = function () {
         /////// ?
     };
 
     //function to return current total(s) given the cards in a hand
-    this.total = function () {
+    publicVar.total = function () {
         // returns total value of cards in an array
         // if an ace is present, will return multiple values in an array
         var total = 0;
@@ -41,7 +42,7 @@ var Hand = function (card) {
             return [total];
     };
 
-    this.toString = function () {
+    publicVar.toString = function () {
         var str = "\n";
         for (var i in hand) {
             str += hand[i].toString() + "<br>";
@@ -50,7 +51,7 @@ var Hand = function (card) {
     };
 
     //set all cards in the hand to be visible
-    this.setAllVisible = function() {
+    publicVar.setAllVisible = function() {
         for (var i in hand) {
             hand[i].setVisible();
         }
@@ -58,8 +59,8 @@ var Hand = function (card) {
 
     //returns the highest score (if multiples or not) that is valid for a hand that is still under 22
     //if there is no valid score, returns -1
-    this.highestValidScore = function() {
-        var totals = this.total();
+    publicVar.highestValidScore = function() {
+        var totals = publicVar.total();
         var currHigh = -1;
         for(var i in totals) {
             if(totals[i] < 22 && totals[i] > currHigh)

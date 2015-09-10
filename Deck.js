@@ -1,6 +1,6 @@
 var Deck = function () {
     var cardArray = [];
-    var me = this;
+    var publicVar = this;
 
     //initializes a brand new deck and shuffles it
     function initCards() {
@@ -28,18 +28,18 @@ var Deck = function () {
         /*end init*/
 
         //shuffle new deck
-        me.shuffle();
+        publicVar.shuffle();
     }
 
     //shuffles the card array
-    me.shuffle = function() {
+    publicVar.shuffle = function() {
         var o = cardArray;
         for (var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
     };
 
-    //deals cards, one at a time to each player. The first card is face up and the second is face down
-    me.deal = function (players) {
+    //deals cards, one at a tipublicVar to each player. The first card is face up and the second is face down
+    publicVar.deal = function (players) {
         //players is an array of people to deal to
         //each player is given a card face down, then one face up
         for (var i in players) {
@@ -54,24 +54,24 @@ var Deck = function () {
     };
 
     //take a card off the deck, then put it into a hand
-    me.hit = function (hand) {
-        hand.addCard(me.getCard());
+    publicVar.hit = function (hand) {
+        hand.addCard(publicVar.getCard());
     };
 
     //gives a card from the cardArray, makes it visible, then returns the card
-    me.getCard = function () {
+    publicVar.getCard = function () {
         var card = cardArray.pop();
         card.setVisible();
         return card;
     };
 
     //outputs a listing of all the cards in the current deck. helper function for debugging
-    me.showCards = function () {
+    publicVar.showCards = function () {
         return cardArray;
     };
 
     //checks to see if 10 or less cards in the deck, if so, we just shuffle a new deck
-    me.checkCardCount = function() {
+    publicVar.checkCardCount = function() {
         if(cardArray.length <= 10) {
             initCards();
         }
