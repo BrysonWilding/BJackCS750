@@ -34,3 +34,7 @@ input[type=number] {
     text-align: center;
     margin-bottom: 24px;
 }
+
+.score {
+    float: right;
+}

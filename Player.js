@@ -1,6 +1,7 @@
 var Player = function () {
     this.currHand = null;
     this.currMoney = 1000;
+    this.currBet = 0;
 
     this.bet = function(amount) {
         if(this.currMoney - amount < 1) {
@@ -8,6 +9,7 @@ var Player = function () {
             return false;
         } else {
             this.currMoney -= amount;
+            this.currBet = amount;
             return true;
         }
         /*
@@ -31,4 +33,10 @@ var Player = function () {
          total += 11;
          }*/
     }
+
+    this.wonHand = function() {
+        this.currMoney += this.currBet*2;
+        this.currBet = 0;
+        this.currHand = null;
+    };
 };

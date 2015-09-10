@@ -1,5 +1,5 @@
 var Dealer = function () {
-    var privateVar = "";
+    this.currHand = null;
 
     /*var cardNumber = 0;
     var nextCard = cardArray.pop();
@@ -8,25 +8,12 @@ var Dealer = function () {
 
 
     this.currHand = null;
-    this.play = function () {
+    */
+    this.play = function (deck) {
+        var total = this.currHand.highestValidScore();
         while (total < 17) {
-            Dealer.currHand.addCard(nextCard);
-            total = total + nextCard.pointValue;
+            deck.hit(this.currHand);
+            total = this.currHand.highestValidScore();
         }
-        if (DealerTotal > 17 && DealerTotal <= 21) {
-            if (DealerTotal > PlayerTotal) {
-                alert("Dealer Wins");
-                endHand = true;
-            }
-            else (dealerTotal == playerTotal)
-            {
-                alert("Push");
-                endHand = true;
-            }
-        }
-        if (dealerTotal > 21) {
-            alert("You Win!!");
-            endHand = true;
-        }
-    };*/
+    };
 };
