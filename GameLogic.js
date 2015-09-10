@@ -127,6 +127,7 @@ function runGame() {
             alert("You lose. The dealer got blackjack.");
         } else if (player_high == dealer_high) {
             alert("You win! Dealer's score was " + dealer_high +" and tie goes to the player.");
+            me.wonHand();
         } else if (player_high >= dealer_high) {
             alert("You win! Dealer's score was " + dealer_high +".");
             me.wonHand();
