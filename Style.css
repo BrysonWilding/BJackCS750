@@ -1,40 +1,71 @@
-body {
-    background: #228b22;
-    position: relative;
-}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif; }
 
 .container {
-    width: 400px;
-    position: relative;
-    margin: 40px auto;
-    background: #efefef;
-    border: 1px solid black;
-    min-height: 400px;
-    text-align: center;
-}
+  background-color: #45a176;
+  height: 100vh;
+  width: 100vw; }
+  .container .game {
+    height: 75vh;
+    width: 100vw; }
+  .container .hud {
+    height: 25vh;
+    width: 100vw;
+    background-color: #656565;
+    border-top: outset #2f2f2f .5vh;
+    display: inline-flex;
+    justify-content: space-around;
+    align-content: space-around; }
+    .container .hud .player-money {
+      height: 7vh;
+      width: 40vh;
+      font-size: 3vw;
+      font-weight: bold;
+      align-self: center; }
+    .container .hud .player-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      text-align: center;
+      font-size: 3rem;
+      letter-spacing: .5rem; }
+      .container .hud .player-options .hit {
+        background-color: #bababa;
+        height: 8vh;
+        width: 20vw;
+        border: solid black 1px; }
+      .container .hud .player-options .stay {
+        background-color: #bababa;
+        height: 8vh;
+        width: 20vw;
+        border: solid black 1px; }
 
-.box {
-    text-align: left;
-    margin: auto;
-    width: 315px;
-    position: relative;
-}
+.card .front .bottomright {
+  -webkit-transform: rotate(180deg) translate(-50%, 0);
+  transform: rotate(180deg) translate(-50%, 0); }
+.card .back {
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+  background: repeating-linear-gradient(45deg, #585fcd, #1e1eff 5px, #3c3c3c 8px, #3c3c3c 8px); }
+  .card .back .face, .card .back .topleft, .card .back .bottomright {
+    display: none; }
 
-input[type=button] {
-    margin: 0 10px;
-}
+.deck {
+  position: absolute;
+  top: 35vh;
+  left: 80vw; }
 
-input[type=number] {
-    width: 50px;
-}
+.dealer {
+  position: absolute;
+  top: 10vh;
+  left: 40vw; }
 
-.buttons {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 24px;
-}
+.player {
+  position: absolute;
+  top: 60vh;
+  left: 40vw; }
 
-.score {
-    float: right;
-}
+/*# sourceMappingURL=style.css.map */

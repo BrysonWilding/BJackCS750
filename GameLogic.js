@@ -11,7 +11,8 @@ function runGame() {
         stay: document.getElementById('stay'),
         bet: document.getElementById('bet'),
         player_score: document.getElementById('player_score'),
-        dealer_score: document.getElementById('dealer_score')
+        dealer_score: document.getElementById('dealer_score'),
+        deck: document.querySelector('deck')
     };
 
     //init the first deck
@@ -36,7 +37,28 @@ function runGame() {
         els.stay.disabled = "disabled";
     }
 
+    // GUI Crap
+    function translate(a, b, c) {
+        c = c || 0;
+        return 'translate3d(' + a + ', ' + b + ', ' + c + ')';
+    }
+    var deckEl = document.querySelector('.deck');
+    for(var i = 0; i < 10; i++){
+        var card = document.createElement('div');
+        var back = document.createElement('div');
+        card.classList.add('card');
+        back.classList.add('back');
+
+        card.style.transform = translate(-i/10 + 'vw', '-150%');
+        card.style.zIndex = i;
+        card.appendChild(back);
+        deckEl.appendChild(card);
+    }
+
+
+
     /** this is the actions to take on the "bet" button **/
+    //TODO: Change events to tie into new elements
     els.bet.onclick = function() {
         //check for empty bet field
         if(!els.bet_amount.value) {
@@ -142,10 +164,10 @@ function runGame() {
 
         els.starting_amount.value = me.currMoney;
     };
-};
+}
 
 //start a new game. we have to wait til onload so the dom is fully initialized before we try to reference things on it
 window.onload = function() {
     /**start the game when a new object is initialized**/
     runGame();
-}
+};

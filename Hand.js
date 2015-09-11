@@ -5,6 +5,7 @@ var Hand = function (card) {
     //adds a card to our current hand
     publicVar.addCard = function (card) {
         hand.push(card);
+
     };
 
     publicVar.split = function () {
