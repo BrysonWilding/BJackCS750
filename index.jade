@@ -1,6 +1,7 @@
 link(href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css')
 link(rel="stylesheet" href="style.css")
 link(rel="stylesheet" href="card.css")
+script(src="move.min.js")
 script(src="Deck.js")
 script(src="Hand.js")
 script(src="Card.js")
@@ -24,7 +25,11 @@ script(src="GameLogic.js")
         //        .topleft A
         //        .bottomright A
     .hud
-        .player-money $1000
+        .player-money
+            .show-money $1000
+            .row
+                .place-bet Bet how much?
+                input.bet
         .player-options
             .hit HIT
             .stay STAY
