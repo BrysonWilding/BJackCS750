@@ -19,11 +19,16 @@ html, body {
     justify-content: space-around;
     align-content: space-around; }
     .container .hud .player-money {
-      height: 7vh;
-      width: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100%;
+      width: 50vw;
       font-size: 3vw;
       font-weight: bold;
       align-self: center; }
+      .container .hud .player-money .show-money {
+        height: 20%; }
     .container .hud .player-options {
       display: flex;
       flex-direction: column;
@@ -41,6 +46,11 @@ html, body {
         height: 8vh;
         width: 20vw;
         border: solid black 1px; }
+      .container .hud .player-options .hit:hover, .container .hud .player-options .stay:hover {
+        background-color: #888888; }
+
+.row {
+  display: inline-flex; }
 
 .card .front .bottomright {
   -webkit-transform: rotate(180deg) translate(-50%, 0);
