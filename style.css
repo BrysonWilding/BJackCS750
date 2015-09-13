@@ -3,10 +3,14 @@ html, body {
   padding: 0;
   font-family: 'Open Sans', sans-serif; }
 
+.invisible {
+  display: none; }
+
 .container {
   background-color: #45a176;
   height: 100vh;
-  width: 100vw; }
+  width: 100vw;
+  perspective: 800px; }
   .container .game {
     height: 75vh;
     width: 100vw; }
@@ -47,7 +51,9 @@ html, body {
         width: 20vw;
         border: solid black 1px; }
       .container .hud .player-options .hit:hover, .container .hud .player-options .stay:hover {
-        background-color: #888888; }
+        background-color: #888888;
+        cursor: pointer;
+        user-select: none; }
 
 .row {
   display: inline-flex;
@@ -73,14 +79,65 @@ html, body {
   top: 35vh;
   left: 80vw; }
 
+.hand {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto; }
+
 .dealer {
   position: absolute;
   top: 10vh;
-  left: 40vw; }
+  left: 25vw; }
 
 .player {
   position: absolute;
-  top: 60vh;
-  left: 40vw; }
+  top: 55vh;
+  left: 25vw; }
+
+.bet-modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0; }
+  .bet-modal .overlay {
+    background-color: rgba(0, 0, 0, 0.51);
+    height: 100%;
+    width: 100%; }
+    .bet-modal .overlay .modal {
+      border: solid #414141 4px;
+      background-color: #5454a8;
+      width: 30vw;
+      height: 20vh;
+      position: relative;
+      top: 30vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .bet-modal .overlay .modal .row {
+        display: flex;
+        align-self: center;
+        width: 80%;
+        margin: 0 auto; }
+        .bet-modal .overlay .modal .row .place-bet {
+          align-self: center;
+          width: 55%; }
+        .bet-modal .overlay .modal .row input {
+          font-size: 2rem;
+          width: 45%; }
+      .bet-modal .overlay .modal .play-game {
+        align-self: center;
+        background-color: #bababa;
+        height: 5.33333vh;
+        width: 18.18182vw;
+        border: solid black 1px;
+        text-align: center;
+        font-size: 2rem; }
+      .bet-modal .overlay .modal .play-game:hover {
+        background-color: #888888;
+        cursor: pointer;
+        -webkit-user-select: none; }
 
 /*# sourceMappingURL=style.css.map */

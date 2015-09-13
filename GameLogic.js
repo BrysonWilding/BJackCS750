@@ -3,17 +3,18 @@ function runGame() {
     //object to contain references to html elements
     //TODO: These need to match classes in index.html
     var els = {
-        show_money: document.getElementById('money_label'),
+        show_money: document.querySelector('show-money'),
         starting_amount: document.getElementById('starting'),
-        bet_amount: document.getElementById('bet_amount'),
+        bet_amount: document.querySelector('.bet'),
         player_cont: document.getElementById('player'),
         dealer_cont: document.getElementById('dealer'),
         hit: document.querySelector('.hit'),
         stay: document.querySelector('.stay'),
-        bet: document.querySelector('.bet'),
+        play_game: document.querySelector('.play-game'),
         player_score: document.getElementById('player_score'),
         dealer_score: document.getElementById('dealer_score'),
-        deck: document.querySelector('deck')
+        deck: document.querySelector('deck'),
+        bet_modal: document.querySelector('.bet-modal')
     };
 
     //init the first deck
@@ -44,15 +45,15 @@ function runGame() {
         return 'translate3d(' + a + ', ' + b + ', ' + c + ')';
     }
     var deckEl = document.querySelector('.deck');
-    for(var i = 0; i < 10; i++){
+    for(var i = 0; i < deck.showCards().length; i++){
         var card = document.createElement('div');
-        var back = document.createElement('div');
+        var face = document.createElement('div');
         card.classList.add('card');
-        back.classList.add('back');
+        face.classList.add('back');
 
-        card.style.transform = translate(-i/10 + 'vw', '-150%');
+        card.style.transform = translate(-i/52 + 'vw', '-150%');
         card.style.zIndex = i;
-        card.appendChild(back);
+        card.appendChild(face);
         deckEl.appendChild(card);
     }
 
@@ -60,16 +61,16 @@ function runGame() {
 
     /** this is the actions to take on the "bet" button **/
     //TODO: Change events to tie into new elements
-    els.bet.onclick = function() {
-        console.log("bet clicked");
+    els.play_game.onclick = function() {
+        console.log(this.className + " clicked");
         //check for empty bet field
         if(!els.bet_amount.value) {
             alert('please input an amount to bet');
         } else {
             //disable the starting money as they cannot change it once the game is started
-            els.money_label.innerHTML = "Current Money";
-            els.starting_amount.disabled = "disabled";
-
+            //els.money_label.innerHTML = "Current Money";
+            //els.starting_amount.disabled = "disabled";
+            els.bet_modal.classList.add('invisible');
             //check if the bet is valid. If so, continue with game play
             if(me.bet(parseInt(els.bet_amount.value))) {
                 //check if we need to get out a new deck

@@ -5,7 +5,11 @@ var Hand = function (card) {
     //adds a card to our current hand
     publicVar.addCard = function (card) {
         hand.push(card);
-
+        var x = document.querySelector('.player');
+        var y = document.createElement('p');
+        y.textContent = "Lame";
+        x.appendChild(card.createCardElement())
+        //x.appendChild(y);
     };
 
     publicVar.split = function () {
