@@ -50,7 +50,12 @@ html, body {
         background-color: #888888; }
 
 .row {
-  display: inline-flex; }
+  display: inline-flex;
+  align-content: center; }
+  .row input.bet {
+    font-size: 3vw;
+    width: 8vw;
+    text-align: center; }
 
 .card .front .bottomright {
   -webkit-transform: rotate(180deg) translate(-50%, 0);
