@@ -1,15 +1,16 @@
 /** defined same start routine **/
 function runGame() {
     //object to contain references to html elements
+    //TODO: These need to match classes in index.html
     var els = {
-        money_label: document.getElementById('money_label'),
+        show_money: document.getElementById('money_label'),
         starting_amount: document.getElementById('starting'),
         bet_amount: document.getElementById('bet_amount'),
         player_cont: document.getElementById('player'),
         dealer_cont: document.getElementById('dealer'),
-        hit: document.getElementById('hit'),
-        stay: document.getElementById('stay'),
-        bet: document.getElementById('bet'),
+        hit: document.querySelector('.hit'),
+        stay: document.querySelector('.stay'),
+        bet: document.querySelector('.bet'),
         player_score: document.getElementById('player_score'),
         dealer_score: document.getElementById('dealer_score'),
         deck: document.querySelector('deck')
@@ -60,6 +61,7 @@ function runGame() {
     /** this is the actions to take on the "bet" button **/
     //TODO: Change events to tie into new elements
     els.bet.onclick = function() {
+        console.log("bet clicked");
         //check for empty bet field
         if(!els.bet_amount.value) {
             alert('please input an amount to bet');
@@ -104,6 +106,7 @@ function runGame() {
 
     /** this is the actions to take on the "hit" button **/
     els.hit.onclick = function() {
+        console.log("hit clicked");
         // add a card into player hand
         deck.hit(me.currHand);
 
@@ -135,6 +138,7 @@ function runGame() {
 
     /** this is the actions to take on the "stay" button **/
     els.stay.onclick = function() {
+        console.log("stay clicked");
         //dealer starts their turn
         dealer.play(deck);
 
