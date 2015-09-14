@@ -3,21 +3,36 @@ body {
     position: relative;
 }
 
+.spacer {
+    height: 5vh;
+}
+
 .container {
     width: 400px;
     position: relative;
-    margin: 40px auto;
+    padding-top: 2%;
     background: #efefef;
-    border: 1px solid black;
+    border: 5px outset rbg(255, 255, 255, .1);
     min-height: 400px;
     text-align: center;
+    box-shadow: 0rem 1rem 3rem rgba(0, 0, 0, 0.6);
 }
 
 .box {
     text-align: left;
     margin: auto;
-    width: 315px;
+    width: 75%;
     position: relative;
+    padding: 0 3% 3%;
+}
+
+#starting:disabled {
+    color: cadetblue;
+}
+
+.title {
+    letter-spacing: 1.2rem;
+    margin: 2.5vh auto;
 }
 
 input[type=button] {
@@ -35,6 +50,11 @@ input[type=number] {
     margin-bottom: 24px;
 }
 
-.score {
-    float: right;
+.score-container {
+    display: flex;
+    justify-content: space-between;
 }
+
+/*.score {*/
+    /*float: right;*/
+/*}*/

@@ -1,5 +1,14 @@
 /** defined same start routine **/
 function runGame() {
+
+    // Overriding alert because the standard one is annoying
+    window.alert = function(content, button) {
+        if (button === "" || button === null || typeof button == 'undefined') button = "Okay";
+        els.modal_content.textContent = content;
+        els.modal_button.textContent = button;
+        $('#modal1').openModal();
+    };
+
     //object to contain references to html elements
     var els = {
         money_label: document.getElementById('money_label'),
@@ -11,7 +20,10 @@ function runGame() {
         stay: document.getElementById('stay'),
         bet: document.getElementById('bet'),
         player_score: document.getElementById('player_score'),
-        dealer_score: document.getElementById('dealer_score')
+        dealer_score: document.getElementById('dealer_score'),
+        modal: document.querySelector("#modal1"),
+        modal_content: document.querySelector("#modal-content"),
+        modal_button: document.querySelector(".modal-close")
     };
 
     //init the first deck
