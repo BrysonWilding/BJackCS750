@@ -57,6 +57,7 @@ function runGame() {
             //disable the starting money as they cannot change it once the game is started
             els.money_label.innerHTML = "Current Money";
             els.starting_amount.disabled = "disabled";
+            me.currMoney = parseInt(els.starting_amount);
 
             //check if the bet is valid. If so, continue with game play
             if(me.bet(parseInt(els.bet_amount.value))) {
