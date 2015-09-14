@@ -131,6 +131,7 @@ function runGame() {
         //flip over dealer cards to make them visiable
         dealer.currHand.setAllVisible();
         els.dealer_cont.innerHTML = dealer.currHand.toString();
+        els.dealer_score.innerHTML = dealer.currHand.total().toString();
 
         //check dealer score vs player score to see who wins
         var dealer_high = dealer.currHand.highestValidScore();
