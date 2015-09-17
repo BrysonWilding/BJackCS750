@@ -1,4 +1,6 @@
 # BJackCS3750
+
+[![Join the chat at https://gitter.im/BrysonWilding/BJackCS750](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/BrysonWilding/BJackCS750?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 BlackJack for CS3750
 
 ## About
